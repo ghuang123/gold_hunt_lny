@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { getRemainingSeconds } from '../lib/time'
+import FateEnvelope from '../components/FateEnvelope.jsx'
 
 function CampfirePhase({ room, players, myId, onDoneTalking, onTimeout }) {
   const isSpeaker = room.current_player_id === myId
@@ -33,6 +34,7 @@ function CampfirePhase({ room, players, myId, onDoneTalking, onTimeout }) {
     <main className="screen campfire">
       <div className="stack">
         <p className="small">topic: {room.chosen_topic}</p>
+        {isSpeaker && <FateEnvelope fateIsTruth={room.fate_is_truth} compact />}
         <div className="card">
           <p>{room.chosen_question}</p>
         </div>

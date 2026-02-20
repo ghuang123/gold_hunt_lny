@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { getRemainingSeconds } from '../lib/time'
+import FateEnvelope from '../components/FateEnvelope.jsx'
 
 function HuntPhase({ room, players, myId, onTimeout }) {
   const isSpeaker = room.current_player_id === myId
@@ -53,6 +54,7 @@ function HuntPhase({ room, players, myId, onTimeout }) {
           <p className="small">{room.chosen_topic}</p>
           <p>{room.chosen_question}</p>
         </div>
+        {isSpeaker && <FateEnvelope fateIsTruth={room.fate_is_truth} compact />}
 
         <div className="card">
           <div className="timer red">{Math.ceil(remaining)}</div>

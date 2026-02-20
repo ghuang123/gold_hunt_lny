@@ -265,6 +265,23 @@
   .fate-badge.lie {
     @apply bg-red-deep text-gold-primary border-gold-primary/40;
   }
+  .hongbao {
+    @apply w-full max-w-[360px] mx-auto rounded-2xl px-5 py-6 border-2 border-gold-primary/40 bg-red-deep text-gold-primary text-center transition;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  }
+  .hongbao.compact {
+    @apply max-w-[320px] px-4 py-4;
+  }
+  .hongbao-orb {
+    @apply mx-auto mb-3 w-14 h-14 rounded-full;
+    background: radial-gradient(circle at 35% 35%, #ffe9a6, #ffd700 55%, #b8960c 100%);
+  }
+  .hongbao-title {
+    @apply text-xs uppercase tracking-[0.2em];
+  }
+  .hongbao-sub {
+    @apply text-sm text-white-smoke;
+  }
   .question-card {
     @apply w-full rounded-xl p-4 text-left bg-green-mid border-2 border-transparent flex flex-col gap-2 relative;
   }

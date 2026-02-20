@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import FateEnvelope from '../components/FateEnvelope.jsx'
 
 function FatePhase({ room, players, myId, onStartStory }) {
   const isSpeaker = room.current_player_id === myId
@@ -18,17 +19,17 @@ function FatePhase({ room, players, myId, onStartStory }) {
   const [selected, setSelected] = useState('')
 
   if (isSpeaker) {
-    const fateLabel = room.fate_is_truth ? 'truth 🍵' : 'lie 🧨'
-    const fateClass = room.fate_is_truth ? 'truth' : 'lie'
-
     return (
       <main className="screen">
         <div className="stack">
-          <div className={`fate-badge ${fateClass}`}>{fateLabel}</div>
-          <p className="small">your fate is set.</p>
+          <h2>listen up, horse.</h2>
+          <p className="hint">fate just picked your lane. check it. keep it hidden.</p>
+
+          <FateEnvelope fateIsTruth={room.fate_is_truth} />
+
           <p className="small">topic: {room.current_topic}</p>
-          <p className="small">pick the question you want to answer</p>
-          <p className="phase-next">next: 45s campfire, then the hunt.</p>
+          <p className="small">choose your question</p>
+          <p className="phase-next">tap one to lock it in. the other burns.</p>
 
           <button
             className={`question-card ${selected === room.question_q1 ? 'selected' : ''}`}

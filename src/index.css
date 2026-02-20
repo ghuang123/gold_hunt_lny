@@ -1,0 +1,380 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-green-deep text-white-smoke font-sans antialiased;
+  }
+  h1, h2, h3 {
+    @apply lowercase m-0;
+  }
+  h1 {
+    @apply text-[clamp(2.4rem,5vw,3.2rem)] font-extrabold text-gold-primary tracking-[-0.02em];
+  }
+  h2 {
+    @apply text-[clamp(1.6rem,4vw,2rem)] font-extrabold text-gold-primary;
+  }
+  p {
+    @apply m-0 leading-relaxed;
+  }
+}
+
+@layer components {
+  .screen {
+    @apply min-h-screen px-7 py-7 flex flex-col items-center justify-center gap-3 text-center;
+    padding-top: max(28px, env(safe-area-inset-top));
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
+  }
+  .stack {
+    @apply w-full max-w-[520px] flex flex-col gap-3;
+  }
+  .small {
+    @apply text-xs text-gold-dark italic;
+  }
+  .input {
+    @apply w-full max-w-[420px] px-4 py-3 rounded-lg border-2 border-green-mid bg-black-felt text-white-smoke;
+  }
+  .gold-input {
+    @apply border-gold-primary/60 text-white-smoke;
+  }
+  .btn {
+    @apply w-full max-w-[420px] min-h-[52px] rounded-lg border-0 bg-gold-primary text-black-felt font-extrabold uppercase tracking-[0.6px] transition;
+  }
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  .btn.soft {
+    @apply bg-green-mid text-gold-primary border border-gold-primary/40;
+  }
+  .btn.primary-cta {
+    @apply shadow-[0_0_20px_rgba(255,215,0,0.25)];
+  }
+  .btn.outline {
+    @apply bg-transparent border-2 border-gold-primary text-gold-primary;
+  }
+  .btn.join {
+    @apply max-w-[140px] bg-gold-dark text-black-felt;
+  }
+  .link {
+    @apply text-gold-primary underline cursor-pointer;
+  }
+  .pill-btn {
+    @apply rounded-full px-4 py-2 min-h-[44px] text-sm uppercase tracking-wide;
+  }
+  .card {
+    @apply w-full max-w-[520px] bg-green-mid rounded-xl p-4 flex flex-col gap-3 border border-gold-primary/10;
+  }
+  .error-card {
+    @apply w-full max-w-[520px] rounded-xl border border-red-500/40 bg-red-900/20 px-4 py-2 text-xs text-red-200;
+  }
+  .zodiac-grid {
+    @apply grid grid-cols-4 gap-2.5;
+  }
+  .zodiac-card {
+    @apply bg-green-mid border-2 border-transparent rounded-xl p-3 text-white-smoke text-center transition;
+  }
+  .zodiac-card.selected {
+    @apply border-gold-primary scale-[1.03];
+  }
+  .zodiac-card .emoji {
+    @apply block text-2xl;
+  }
+  .zodiac-card .name {
+    @apply block text-sm;
+  }
+  .zodiac-card .trait {
+    @apply block text-[0.65rem] text-gold-dark italic;
+  }
+  .howto {
+    @apply text-left gap-2;
+  }
+  .howto p {
+    @apply text-sm text-white-smoke;
+  }
+  .divider {
+    @apply text-gold-dark text-xs text-center tracking-widest;
+  }
+  .player-list {
+    @apply w-full max-w-[520px] flex flex-col gap-2;
+  }
+  .player-row {
+    @apply flex items-center justify-between bg-green-mid rounded-xl px-3 py-2 border border-gold-primary/10;
+  }
+  .player-row.host-row {
+    @apply border-gold-primary/40;
+  }
+  .player-actions {
+    @apply flex items-center gap-2;
+  }
+  .badge {
+    @apply text-[0.7rem] text-gold-primary;
+  }
+  .badge.host-badge {
+    @apply rounded-full border border-gold-primary/40 px-2 py-0.5;
+  }
+  .small-btn {
+    @apply min-h-[36px] max-w-[120px] px-2.5 py-1.5 text-xs;
+  }
+  .qa-nav {
+    @apply fixed right-4 z-[1000] flex gap-2;
+    top: max(16px, env(safe-area-inset-top));
+  }
+  .qa-btn {
+    @apply w-11 h-11 rounded-lg border-2 border-gold-primary bg-transparent text-gold-primary font-extrabold text-lg;
+  }
+  .qa-btn:disabled {
+    @apply opacity-40;
+  }
+  .landing,
+  .courtyard {
+    position: relative;
+    overflow: hidden;
+  }
+  .lantern {
+    position: absolute;
+    width: 26px;
+    height: 34px;
+    background: #b11f1f;
+    border-radius: 8px 8px 10px 10px;
+    box-shadow: 0 0 18px rgba(255, 140, 0, 0.5), 0 0 40px rgba(255, 69, 0, 0.25);
+    opacity: 0.9;
+    animation: floatLantern 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .lantern::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 6px;
+    height: 6px;
+    background: #5a0f0f;
+    transform: translateX(-50%);
+    border-radius: 50%;
+  }
+  .lantern-1 {
+    top: 14%;
+    left: 12%;
+    transform: scale(0.9);
+    animation-duration: 7s;
+  }
+  .lantern-2 {
+    top: 18%;
+    right: 16%;
+    transform: scale(0.8);
+    animation-duration: 6.5s;
+  }
+  .lantern-3 {
+    top: 32%;
+    right: 8%;
+    transform: scale(0.7);
+    animation-duration: 8s;
+  }
+  .lantern.hide-sm {
+    display: block;
+  }
+
+  .row {
+    @apply w-full flex items-center gap-3;
+  }
+  .row.between {
+    @apply justify-between;
+  }
+  .row-stack {
+    @apply flex;
+  }
+  .grow {
+    @apply flex-1;
+  }
+  .room-row {
+    @apply w-full flex items-center justify-between rounded-xl px-4 py-3 bg-green-mid border border-gold-primary/10 text-gold-primary transition;
+  }
+  .room-code {
+    @apply font-extrabold tracking-wide;
+  }
+  .room-count {
+    @apply text-sm text-gold-dark;
+  }
+
+  .chosen-emoji {
+    @apply text-6xl;
+  }
+  .scoreboard {
+    @apply flex flex-col gap-2;
+  }
+  .score-row {
+    @apply grid items-center gap-2 rounded-lg px-3 py-2;
+    grid-template-columns: 36px 1fr auto auto;
+    background: rgba(13, 31, 13, 0.6);
+  }
+  .score-row.current {
+    @apply border border-gold-primary/40;
+  }
+  .score-rank {
+    @apply text-gold-dark text-sm;
+  }
+  .score-name {
+    @apply text-white-smoke text-sm overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+  .score-points {
+    @apply text-gold-primary text-sm;
+  }
+  .score-delta {
+    @apply text-gold-dark text-xs;
+  }
+  .still-list {
+    @apply flex flex-wrap gap-2;
+  }
+  .chip {
+    @apply rounded-full px-3 py-1 bg-green-mid text-sm border border-gold-primary/20;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .fate-badge {
+    @apply w-fit px-4 py-2 rounded-full text-xs font-extrabold uppercase border;
+  }
+  .fate-badge.truth {
+    @apply bg-green-mid text-gold-primary border-gold-primary/40;
+  }
+  .fate-badge.lie {
+    @apply bg-red-deep text-gold-primary border-gold-primary/40;
+  }
+  .question-card {
+    @apply w-full rounded-xl p-4 text-left bg-green-mid border-2 border-transparent flex flex-col gap-2 relative;
+  }
+  .question-card.selected {
+    @apply border-gold-primary shadow-[0_0_16px_rgba(255,215,0,0.15)];
+  }
+  .question-card .check {
+    @apply absolute right-3 top-3 text-gold-primary;
+  }
+  .q-label {
+    @apply text-xs text-gold-dark uppercase tracking-wide;
+  }
+  .q-text {
+    @apply text-white-smoke text-base;
+  }
+
+  .campfire {
+    @apply bg-red-deep/20;
+  }
+  .timer {
+    font-size: clamp(2.5rem, 8vw, 3.8rem);
+    font-weight: 800;
+  }
+  .timer.red {
+    @apply text-red-400;
+  }
+  .btn .btn-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: #1a1a1a;
+    margin-top: 4px;
+    text-transform: none;
+    font-weight: 600;
+  }
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .hunt {
+    @apply bg-red-hunt/20;
+  }
+  .sparks {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .spark {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 10px;
+    background: rgba(255, 200, 80, 0.8);
+    border-radius: 999px;
+    animation: sparkUp 2s infinite;
+  }
+
+  .vote-grid {
+    @apply grid grid-cols-2 gap-3;
+  }
+  .vote-btn {
+    @apply min-h-[72px] rounded-xl font-extrabold uppercase tracking-wide transition;
+  }
+  .vote-btn.truth {
+    @apply bg-green-tint text-white-smoke border border-gold-primary/20;
+  }
+  .vote-btn.lie {
+    @apply bg-red-tint text-white-smoke border border-gold-primary/20;
+  }
+  .vote-btn.selected {
+    @apply border-gold-primary shadow-[0_0_16px_rgba(255,215,0,0.15)];
+  }
+  .vote-btn.locked {
+    @apply opacity-70;
+  }
+  .speed-card {
+    @apply gap-2;
+  }
+  .speed-row {
+    @apply text-xs text-white-smoke/80 px-2 py-1 rounded-md;
+  }
+  .speed-row.active {
+    @apply bg-gold-primary/10 text-gold-primary;
+  }
+  .badge-line {
+    @apply text-sm text-gold-primary font-semibold;
+  }
+
+  .result {
+    @apply bg-black-felt/60;
+  }
+  .leaderboard {
+    @apply bg-black-felt/60;
+  }
+}
+
+@media (max-width: 640px) {
+  .row-stack {
+    flex-direction: column;
+  }
+  .btn.join {
+    max-width: none;
+    width: 100%;
+  }
+  .lantern.hide-sm {
+    display: none;
+  }
+  .zodiac-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (hover:hover) {
+  .room-row:hover {
+    box-shadow: 0 0 14px rgba(255, 215, 0, 0.12);
+  }
+  .vote-btn:hover {
+    filter: brightness(1.05);
+  }
+}
+
+@keyframes floatLantern {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sparkUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}

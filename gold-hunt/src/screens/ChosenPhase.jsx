@@ -32,6 +32,7 @@ function ChosenPhase({ room, players, myId, onReady }) {
           <h2>you've been chosen 🐴</h2>
           <p className="small">{copy}</p>
           <p>the room is watching.</p>
+          <p className="phase-next">next: pick your question + fate.</p>
           <button className="btn" type="button" onClick={onReady}>
             i'm ready →
           </button>
@@ -48,6 +49,7 @@ function ChosenPhase({ room, players, myId, onReady }) {
         <div className="card">
           <h2>{speaker?.zodiac} {speaker?.name} is getting ready...</h2>
           <p className="small">{copy}</p>
+          <p className="phase-next">next: they pick a question, then speak for 45s.</p>
         </div>
 
         <div className="card">

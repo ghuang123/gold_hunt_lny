@@ -11,8 +11,8 @@ export const cleanup = async () => {
     .select('id, score')
     .order('score', { ascending: false })
 
-  if (fame && fame.length > 10) {
-    const toDelete = fame.slice(10).map((r) => r.id)
+  if (fame && fame.length > 5) {
+    const toDelete = fame.slice(5).map((r) => r.id)
     await supabase.from('hall_of_fame').delete().in('id', toDelete)
   }
 }

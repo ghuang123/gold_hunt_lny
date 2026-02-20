@@ -28,6 +28,7 @@ function FatePhase({ room, players, myId, onStartStory }) {
           <p className="small">your fate is set.</p>
           <p className="small">topic: {room.current_topic}</p>
           <p className="small">pick the question you want to answer</p>
+          <p className="phase-next">next: 45s campfire, then the hunt.</p>
 
           <button
             className={`question-card ${selected === room.question_q1 ? 'selected' : ''}`}
@@ -69,6 +70,7 @@ function FatePhase({ room, players, myId, onStartStory }) {
       <div className="stack">
         <div className="card">
           <h2>{speaker?.zodiac} {speaker?.name} is choosing their question... 🔒</h2>
+          <p className="phase-next">next: campfire (45s). listen up.</p>
         </div>
 
         <div className="card">

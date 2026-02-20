@@ -59,6 +59,7 @@ function HuntPhase({ room, players, myId, onTimeout }) {
           {room.hunt_bonus_time > 0 && (
             <p className="small">⚡ +{room.hunt_bonus_time}s bonus from campfire</p>
           )}
+          <p className="phase-next">next: voting (30s). trust or cap.</p>
         </div>
 
         {!isSpeaker && speaker && (

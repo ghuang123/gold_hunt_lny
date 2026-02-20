@@ -85,6 +85,7 @@ function VotePhase({ room, players, myId, onAllVoted, onTimeout }) {
         <div className="stack">
           <h2>the table is deciding your fate...</h2>
           <p className="small">{votes.length} of {requiredVotes} have voted</p>
+          <p className="phase-next">next: reveal + scores.</p>
         </div>
       </main>
     )
@@ -95,6 +96,7 @@ function VotePhase({ room, players, myId, onAllVoted, onTimeout }) {
       <div className="stack">
         <h2>{prompt}</h2>
         <p className="small">{speaker?.name} was answering: {room.chosen_question}</p>
+        <p className="phase-next">next: reveal + scores.</p>
 
         <div className="card speed-card">
           <p className="small">⚡ vote faster = more gold</p>

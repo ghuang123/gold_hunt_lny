@@ -9,17 +9,20 @@ export const ROOM_CODES = [
 ]
 
 export const generateCode = async () => {
-  for (let i = 0; i < ROOM_CODES.length; i++) {
-    const base = ROOM_CODES[i]
-    for (let n = 1; n <= 5; n++) {
-      const code = n === 1 ? base : `${base}${n}`
-      const { data } = await supabase
-        .from('rooms')
-        .select('code')
-        .eq('code', code)
-        .single()
-      if (!data) return code
+  const { data: rooms } = await supabase.from('rooms').select('code')
+  const used = new Set((rooms || []).map((r) => r.code))
+
+  const baseAvailable = ROOM_CODES.filter((c) => !used.has(c))
+  if (baseAvailable.length > 0) {
+    return baseAvailable[Math.floor(Math.random() * baseAvailable.length)]
+  }
+
+  for (const base of ROOM_CODES) {
+    for (let n = 2; n <= 5; n++) {
+      const code = `${base}${n}`
+      if (!used.has(code)) return code
     }
   }
+
   throw new Error('could not generate room code')
 }

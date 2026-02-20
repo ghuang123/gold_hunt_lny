@@ -20,7 +20,7 @@ function Leaderboard({ room, players, isHost }) {
         .from('hall_of_fame')
         .select('*')
         .order('score', { ascending: false })
-        .limit(10)
+        .limit(5)
       setHall(data || [])
     }
     load()
@@ -76,7 +76,7 @@ function Leaderboard({ room, players, isHost }) {
         </div>
 
         <div className="card">
-          <p className="small">all-time top 10 🏆</p>
+          <p className="small">all-time top 5 🏆</p>
           {hall.length === 0 && <p className="small">no entries yet</p>}
           {hall.map((h, idx) => (
             <div key={h.id} className="score-row">

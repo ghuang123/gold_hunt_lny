@@ -137,6 +137,7 @@ function ResultPhase({ room, players, isHost }) {
       <div className="stack">
         <h2>the verdict</h2>
         <p className="small">that was {fateIsTruth ? 'truth 🍵' : 'lie 🧨'}</p>
+        <p className="phase-next">next: the next speaker starts when they tap ready.</p>
 
         {fooledEveryone && (
           <div className="card">

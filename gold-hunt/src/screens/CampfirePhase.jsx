@@ -45,6 +45,7 @@ function CampfirePhase({ room, players, myId, onDoneTalking, onTimeout }) {
           {showButton && (
             <p className="small">you can finish your story now — any time left becomes hunt time. 🔥</p>
           )}
+          <p className="phase-next">next: the hunt starts when you end or time hits 0.</p>
         </div>
 
         {isSpeaker ? (
@@ -55,7 +56,10 @@ function CampfirePhase({ room, players, myId, onDoneTalking, onTimeout }) {
             </button>
           )
         ) : (
-          <p className="small">listen carefully to {speaker?.name}... 🎧</p>
+          <div className="stack">
+            <p className="small">listen carefully to {speaker?.name}... 🎧</p>
+            <p className="phase-next">next: hunt — ask sharp questions.</p>
+          </div>
         )}
       </div>
     </main>

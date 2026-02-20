@@ -30,7 +30,13 @@
     @apply w-full max-w-[520px] flex flex-col gap-3;
   }
   .small {
-    @apply text-xs text-gold-dark italic;
+    @apply text-sm text-gold-dark italic;
+  }
+  .hint {
+    @apply text-base text-white-smoke;
+  }
+  .phase-next {
+    @apply text-sm text-gold-dark italic;
   }
   .input {
     @apply w-full max-w-[420px] px-4 py-3 rounded-lg border-2 border-green-mid bg-black-felt text-white-smoke;
@@ -231,13 +237,13 @@
     @apply text-gold-dark text-sm;
   }
   .score-name {
-    @apply text-white-smoke text-sm overflow-hidden text-ellipsis whitespace-nowrap;
+    @apply text-white-smoke text-base overflow-hidden text-ellipsis whitespace-nowrap;
   }
   .score-points {
-    @apply text-gold-primary text-sm;
+    @apply text-gold-primary text-base;
   }
   .score-delta {
-    @apply text-gold-dark text-xs;
+    @apply text-gold-dark text-sm;
   }
   .still-list {
     @apply flex flex-wrap gap-2;

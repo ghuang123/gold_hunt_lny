@@ -173,8 +173,8 @@ function Room() {
       <main className="screen">
         <QANav disabled />
         <h2>{room.code}</h2>
-        <p className="small">share this code with your people</p>
-        <p className="small">{activePlayers.length}/8 players</p>
+        <p className="hint">share this code with your people</p>
+        <p className="hint">{activePlayers.length}/8 players</p>
 
         <div className="player-list">
           {activePlayers.map((p) => (

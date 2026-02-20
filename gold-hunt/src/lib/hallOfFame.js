@@ -25,7 +25,7 @@ export const updateHallOfFame = async (players, roomCode) => {
     .from('hall_of_fame')
     .select('id', { count: 'exact', head: true })
 
-  if (!count || count < 10 || winner.score > (lowest?.score ?? 0)) {
+  if (!count || count < 5 || winner.score > (lowest?.score ?? 0)) {
     if (existing?.id) {
       await supabase.from('hall_of_fame').update({
         name: winner.name,
@@ -44,8 +44,8 @@ export const updateHallOfFame = async (players, roomCode) => {
       .from('hall_of_fame')
       .select('id, score')
       .order('score', { ascending: false })
-    if (fame && fame.length > 10) {
-      const toDelete = fame.slice(10).map((r) => r.id)
+    if (fame && fame.length > 5) {
+      const toDelete = fame.slice(5).map((r) => r.id)
       await supabase.from('hall_of_fame').delete().in('id', toDelete)
     }
   }

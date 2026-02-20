@@ -33,10 +33,22 @@
     @apply text-sm text-gold-dark italic;
   }
   .hint {
-    @apply text-base text-white-smoke;
+    @apply text-[1rem] text-white-smoke/90;
   }
   .phase-next {
     @apply text-sm text-gold-dark italic;
+  }
+  .section-title {
+    @apply text-xs uppercase tracking-[0.2em] text-gold-dark;
+  }
+  .fate-screen {
+    @apply text-center;
+  }
+  .fate-title {
+    @apply tracking-[0.08em];
+  }
+  .fate-section {
+    @apply w-full flex flex-col gap-3;
   }
   .input {
     @apply w-full max-w-[420px] px-4 py-3 rounded-lg border-2 border-green-mid bg-black-felt text-white-smoke;
@@ -266,7 +278,7 @@
     @apply bg-red-deep text-gold-primary border-gold-primary/40;
   }
   .hongbao {
-    @apply w-full max-w-[360px] mx-auto rounded-2xl px-5 py-6 border-2 border-gold-primary/40 bg-red-deep text-gold-primary text-center transition;
+    @apply w-full max-w-[380px] mx-auto rounded-2xl px-6 py-7 border-2 border-gold-primary/40 bg-red-deep text-gold-primary text-center transition;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
   }
   .hongbao.compact {
@@ -283,10 +295,11 @@
     @apply text-sm text-white-smoke;
   }
   .question-card {
-    @apply w-full rounded-xl p-4 text-left bg-green-mid border-2 border-transparent flex flex-col gap-2 relative;
+    @apply w-full rounded-xl p-5 text-left bg-green-mid border-2 border-transparent flex flex-col gap-3 relative;
+    border-left: 4px solid rgba(255, 215, 0, 0.35);
   }
   .question-card.selected {
-    @apply border-gold-primary shadow-[0_0_16px_rgba(255,215,0,0.15)];
+    @apply border-gold-primary shadow-[0_0_18px_rgba(255,215,0,0.25)];
   }
   .question-card .check {
     @apply absolute right-3 top-3 text-gold-primary;
@@ -294,8 +307,11 @@
   .q-label {
     @apply text-xs text-gold-dark uppercase tracking-wide;
   }
+  .q-tag {
+    @apply w-fit px-2.5 py-1 rounded-full border border-gold-primary/30 text-[0.65rem] uppercase tracking-[0.2em] text-gold-primary/90;
+  }
   .q-text {
-    @apply text-white-smoke text-base;
+    @apply text-white-smoke text-[1rem] leading-relaxed;
   }
 
   .campfire {

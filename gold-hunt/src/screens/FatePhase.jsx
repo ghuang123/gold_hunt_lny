@@ -20,36 +20,37 @@ function FatePhase({ room, players, myId, onStartStory }) {
 
   if (isSpeaker) {
     return (
-      <main className="screen">
-        <div className="stack">
-          <h2>listen up, horse.</h2>
+      <main className="screen fate-screen">
+        <div className="stack items-center">
+          <h2 className="fate-title">listen up, horse.</h2>
           <p className="hint">fate just picked your lane. check it. keep it hidden.</p>
 
           <FateEnvelope fateIsTruth={room.fate_is_truth} />
 
-          <p className="small">topic: {room.current_topic}</p>
-          <p className="small">choose your question</p>
-          <p className="phase-next">tap one to lock it in. the other burns.</p>
+          <div className="fate-section">
+            <p className="section-title">choose your question</p>
+            <p className="phase-next">tap one to lock it in. the other burns.</p>
 
-          <button
-            className={`question-card ${selected === room.question_q1 ? 'selected' : ''}`}
-            type="button"
-            onClick={() => setSelected(selected === room.question_q1 ? '' : room.question_q1)}
-          >
-            <span className="q-label">q1</span>
-            <span className="q-text">{room.question_q1}</span>
-            {selected === room.question_q1 && <span className="check">✓</span>}
-          </button>
+            <button
+              className={`question-card ${selected === room.question_q1 ? 'selected' : ''}`}
+              type="button"
+              onClick={() => setSelected(selected === room.question_q1 ? '' : room.question_q1)}
+            >
+              <span className="q-tag">{room.current_topic || 'topic'}</span>
+              <span className="q-text">{room.question_q1}</span>
+              {selected === room.question_q1 && <span className="check">✓</span>}
+            </button>
 
-          <button
-            className={`question-card ${selected === room.question_q2 ? 'selected' : ''}`}
-            type="button"
-            onClick={() => setSelected(selected === room.question_q2 ? '' : room.question_q2)}
-          >
-            <span className="q-label">q2</span>
-            <span className="q-text">{room.question_q2}</span>
-            {selected === room.question_q2 && <span className="check">✓</span>}
-          </button>
+            <button
+              className={`question-card ${selected === room.question_q2 ? 'selected' : ''}`}
+              type="button"
+              onClick={() => setSelected(selected === room.question_q2 ? '' : room.question_q2)}
+            >
+              <span className="q-tag">{room.current_topic || 'topic'}</span>
+              <span className="q-text">{room.question_q2}</span>
+              {selected === room.question_q2 && <span className="check">✓</span>}
+            </button>
+          </div>
 
           <button
             className="btn"

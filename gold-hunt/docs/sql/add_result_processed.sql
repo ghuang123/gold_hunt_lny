@@ -1,0 +1,1 @@
+ALTER TABLE rooms ADD COLUMN IF NOT EXISTS result_processed_at TIMESTAMPTZ;

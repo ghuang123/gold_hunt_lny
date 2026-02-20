@@ -126,6 +126,22 @@
   .qa-btn:disabled {
     @apply opacity-40;
   }
+  .qa-panel {
+    @apply fixed left-4 bottom-4 z-[1000] flex flex-col gap-2 bg-black-felt/80 border border-gold-primary/20 rounded-xl p-3 text-left;
+    width: 220px;
+  }
+  .qa-title {
+    @apply text-[0.7rem] uppercase tracking-[0.2em] text-gold-dark;
+  }
+  .qa-row {
+    @apply flex gap-2;
+  }
+  .qa-panel-btn {
+    @apply flex-1 rounded-lg border border-gold-primary/30 bg-transparent text-gold-primary text-xs uppercase py-2;
+  }
+  .qa-msg {
+    @apply text-[0.7rem] text-gold-dark;
+  }
   .landing,
   .courtyard {
     position: relative;
@@ -353,6 +369,13 @@
   .zodiac-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+body.qa-mobile #root {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  box-shadow: 0 0 0 1px rgba(255, 215, 0, 0.12), 0 14px 40px rgba(0, 0, 0, 0.45);
 }
 
 @media (hover:hover) {

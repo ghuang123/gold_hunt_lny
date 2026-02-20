@@ -10,6 +10,7 @@ import VotePhase from './VotePhase.jsx'
 import ResultPhase from './ResultPhase.jsx'
 import Leaderboard from './Leaderboard.jsx'
 import QANav from '../components/QANav.jsx'
+import QAPanel from '../components/QAPanel.jsx'
 
 const PHASES = ['CHOSEN', 'FATE', 'CAMPFIRE', 'HUNT', 'VOTING', 'RESULT', 'LEADERBOARD']
 
@@ -211,6 +212,7 @@ function Room() {
   return (
     <>
       <QANav disabled={!isHost} onBack={() => qaMove(-1)} onNext={() => qaMove(1)} />
+      <QAPanel room={room} players={players} isHost={isHost} isQa={isQa} />
 
       {room.game_phase === 'CHOSEN' && (
         <ChosenPhase room={room} players={players} myId={myId} onReady={goToFate} />
